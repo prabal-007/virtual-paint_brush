@@ -12,6 +12,8 @@ cam.set(10,150)
 
 while True:
     status, img = cam.read()
+    imageResult = img.copy()
+    newPoints = findColor(img, myColors, myColorValues)
     
     cv2.imshow('Result',imageResult)
     key = cv2.waitKey(1)
