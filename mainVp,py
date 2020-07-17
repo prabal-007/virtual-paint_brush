@@ -10,6 +10,7 @@ cam.set(10,150)
 
 myColors = [[31,46,42,213,182,255],[0,111,130,255,140,230],[32,179,135,255,122,255]]
 myColorValues = [[51,153,255],[255,0,255],[0,255,0]]
+myPoints = []       # [x,y,colorID]
 
 def findColor(img, myColors, myColorValues):
     imgHSV = cv2.cvtColor(img,cv2.COLOR_BGR2HSV)
@@ -25,8 +26,8 @@ def findColor(img, myColors, myColorValues):
         if x!=0 and y!=0:
             newPoints.append([x,y,count])
         count += 1
-     return newPoints
-        
+    return newPoints
+
 def getContours(img):
     contoures, hierarchy = cv2.findContours(img, cv2.RETR_EXTERNAL,cv2.CHAIN_APPROX_NONE)
     x,y,w,h = 0,0,0,0
@@ -38,17 +39,15 @@ def getContours(img):
             approx = cv2.approxPolyDP(cnt,0.02*peri,True)
             x,y,w,h = cv2.boundingRect(approx)
     return x+w//2,y
-    
+
 def drawOncanvas(myPoints, myColorValues):
     for point in myPoints:
         cv2.circle(imageResult,(point[0],point[1]),10,myColorValues[point[2]],cv2.FILLED)
-
 
 while True:
     status, img = cam.read()
     imageResult = img.copy()
     newPoints = findColor(img, myColors, myColorValues)
-    
     if len(newPoints)!=0:
         for newpoint in newPoints:
             myPoints.append(newpoint)
