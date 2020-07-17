@@ -1,0 +1,9 @@
+import cv2
+import numpy as np
+
+framewidth = 600
+frameheight = 600
+cam = cv2.VideoCapture(0)
+# cam.set(3,framewidth)
+# cam.set(4,frameheight)
+cam.set(10,150)
