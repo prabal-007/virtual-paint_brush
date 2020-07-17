@@ -7,3 +7,13 @@ cam = cv2.VideoCapture(0)
 # cam.set(3,framewidth)
 # cam.set(4,frameheight)
 cam.set(10,150)
+
+
+
+while True:
+    status, img = cam.read()
+    
+    cv2.imshow('Result',imageResult)
+    key = cv2.waitKey(1)
+    if key == ord('q'):
+        break
