@@ -1,7 +1,6 @@
 import cv2
 import numpy as np
 
-
 framewidth = 600
 frameheight = 600
 cam = cv2.VideoCapture(0)
