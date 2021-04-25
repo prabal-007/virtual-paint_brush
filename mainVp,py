@@ -8,7 +8,6 @@ cam.set(3,framewidth)
 cam.set(4,frameheight)
 cam.set(10,150)
 
-
 myColors = [[31,46,42,213,182,255],[0,111,130,255,140,230],[32,179,135,255,122,255]]
 myColorValues = [[51,153,255],[255,0,255],[0,255,0]]
 myPoints = []        # [x,y,colorID]
