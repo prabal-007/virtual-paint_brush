@@ -18,7 +18,7 @@ def findColor(img, myColors, myColorValues):
     newPoints = []
     for color in myColors:
         lower = np.array(color[0:3])
-        upper = np.array(color[3:6])
+        upper = np.array(color[3:6]) 
         mask = cv2.inRange(imgHSV,lower,upper)
         # cv2.imshow(str(color[0]),mask)
         x,y = getContours(mask)
